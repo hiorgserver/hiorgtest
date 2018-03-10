@@ -18,4 +18,6 @@ RUN \
 
 COPY ./init_db.sh /usr/local/bin/init_db.sh
 
-RUN chmod +x /usr/local/bin/init_db.sh && /usr/local/bin/init_db.sh
+RUN chmod +x /usr/local/bin/init_db.sh
+
+RUN /usr/local/bin/init_db.sh
