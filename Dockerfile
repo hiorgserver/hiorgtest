@@ -16,8 +16,10 @@ RUN \
  curl -sSL https://phar.phpunit.de/phpunit-6.phar -o /usr/bin/phpunit  && chmod +x /usr/bin/phpunit  &&\
  rm -rf /root/.composer /tmp/* /var/lib/apt/lists/*
 
-COPY ./init_db.sh /usr/local/bin/init_db.sh
+ADD *.sh /usr/local/bin/
 
-RUN chmod +x /usr/local/bin/init_db.sh
+RUN chmod +x /usr/local/bin/*.sh
 
 RUN /usr/local/bin/init_db.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
