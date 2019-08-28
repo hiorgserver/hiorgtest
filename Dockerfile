@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -7,8 +7,8 @@ RUN \
  echo "mysql-server mysql-server/root_password password root" | debconf-set-selections &&\
  echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections &&\
  apt-get -y --no-install-recommends install \
-   ca-certificates git openssh-client curl mysql-server mysql-client unzip apt-transport-https \
-   php7.0-cli php7.0-mysqli php7.0-mcrypt php7.0-curl php7.0-soap php7.0-xml php7.0-mbstring php7.0-zip php7.0-xdebug php7.0-gd chromium wget &&\
+   ca-certificates git openssh-client curl mariadb-server mariadb-client unzip apt-transport-https \
+   php7.3-cli php7.3-mysqli php7.3-curl php7.3-soap php7.3-xml php7.3-mbstring php7.3-zip php7.3-xdebug php7.3-gd chromium wget &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
 
 RUN \
