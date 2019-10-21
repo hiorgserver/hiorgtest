@@ -21,3 +21,13 @@ Then build the docker image (we name it `hiorgtest`):
 Then you can run the container:
 
     docker run -it --rm hiorgtest /bin/sh
+
+## Push the image to docker hub
+
+First build the image and get the image id with `docker images`.
+
+Then rename the docker image and optionally add a specific tag:
+ `docker tag d9c8d3b75749 hiorgserver/hiorgtest[:tag]`
+
+Finally push the images to dockerhub: `docker push hiorgserver/hiorgtest[:tag]`
+
