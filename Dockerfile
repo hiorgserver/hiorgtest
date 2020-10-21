@@ -9,7 +9,7 @@ RUN \
  apt-get -y --no-install-recommends install \
    ca-certificates git openssh-client curl mariadb-server mariadb-client unzip apt-transport-https \
    php7.3-cli php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-mysqli php7.3-soap php7.3-xdebug php7.3-xml php7.3-zip \
-   chromium wget &&\
+   chromium wget zip &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
 
 RUN \
