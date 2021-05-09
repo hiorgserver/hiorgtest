@@ -2,15 +2,20 @@ FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
+COPY yaml.ini /etc/php/7.3/mods-available/yaml.ini
+
 RUN \
  apt-get update &&\
  echo "mysql-server mysql-server/root_password password root" | debconf-set-selections &&\
  echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections &&\
  apt-get -y --no-install-recommends install \
    ca-certificates git openssh-client curl mariadb-server mariadb-client unzip apt-transport-https \
+   build-essential \
    php7.3-cli php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-mysqli php7.3-soap \
    php7.3-xdebug php7.3-xml php7.3-zip php7.3-bcmath \
+   php${php_version}-dev libyaml-dev php-pear \
    chromium wget zip &&\
+ pecl install yaml && phpenmod -v 7.3 yaml &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
 
 RUN \
