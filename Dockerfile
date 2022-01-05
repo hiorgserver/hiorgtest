@@ -26,6 +26,7 @@ RUN \
         php${php_version}-mbstring \
         php${php_version}-mysqli \
         php${php_version}-soap \
+	php${php_version}-uopz \
         php${php_version}-xml \
         php${php_version}-zip \
         php${php_version}-dev \
